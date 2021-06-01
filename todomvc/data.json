@@ -1,4 +1,40 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "title": "todo from task 1",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "todo from task 2",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "todo from task 3",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "todoViaApi 1622569328503",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "todoViaApi 1622569331271",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "todoViaApi 1622569332647",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "todoViaApi 1622569334251",
+      "completed": false,
+      "id": 7
+    }
+  ],
   "accounts": []
 }

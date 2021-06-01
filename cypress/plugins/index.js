@@ -17,6 +17,10 @@
 
 // eslint-disable-next-line no-unused-vars
 
+// reset and seed db tasks
+const { resetDatabase } = require('../../todomvc/resetDatabase')
+const { seedDatabase } = require('../../todomvc/seedDatabase')
+
 
 // promisified fs module
 const fs = require('fs-extra')
@@ -31,6 +35,14 @@ function getConfigurationByFile(file) {
 
 
 module.exports = (on, config) => {
+
+  on('task', {
+    resetDatabase
+  })
+
+  on('task', {
+      seedDatabase
+  })
 
   // automatically opens Chrome DevTools after opening Cypress in gui mode
   on('before:browser:launch', (browser = {}, launchOptions) => {
