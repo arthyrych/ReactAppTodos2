@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -15,16 +14,34 @@
 /**
  * @type {Cypress.PluginConfig}
  */
+
 // eslint-disable-next-line no-unused-vars
+
+
+// promisified fs module
+const fs = require('fs-extra')
+const path = require('path')
+
+
+// selectiong config file
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve('cypress', 'config', `${file}.json`)
+  return fs.readJson(pathToConfigFile)
+}
 
 
 module.exports = (on, config) => {
 
+  // automatically opens Chrome DevTools after opening Cypress in gui mode
   on('before:browser:launch', (browser = {}, launchOptions) => {
     if (browser.name === 'chrome') {
         launchOptions.args.push('--auto-open-devtools-for-tabs')
         return launchOptions
     }
   })
+
+  // accept a configFile value or use ../config/env.json by default
+  const file = config.env.configFile || 'env'
+  return getConfigurationByFile(file)
 
 }
