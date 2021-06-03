@@ -1,4 +1,4 @@
-describe('test suite', () => {
+describe('test suite with custom tasks', () => {
 
     it('reset db test', () => {
         cy.task('resetDatabase')

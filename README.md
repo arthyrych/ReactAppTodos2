@@ -2,10 +2,11 @@
 
 ### QA milestones
 1. Resolve envirement variables, configurations, tasks, plugins, etc
-2. API tests
-3. E2E tests
-4. Write scripts via npm or makefile
-5. Connect to dashboard
+2. Add some custom commands
+3. API tests
+4. E2E tests
+5. Write scripts via npm or makefile
+6. Connect to dashboard
 
 ### How to install and run app
 1. `npm install`

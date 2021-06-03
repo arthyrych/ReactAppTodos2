@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// adds a new todo item
+Cypress.Commands.add('addTodo', title => {
+    cy.get('.new-todo').type(title + '{enter}')
+})
+
+// deletes a ceratian todo item via index
+Cypress.Commands.add('deleteTodo', (index) => {
+    cy.get('#todo-list').find('.destroy').eq(index).invoke('show').click()
+})
+
+// complete a ceratian todo item via text
+Cypress.Commands.add('completeTodo', (text) => {
+    cy.get('#todo-list').contains(text).parent().find('.toggle').check()
+})
