@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // adds a new todo item
-Cypress.Commands.add('addTodo', title => {
+Cypress.Commands.add('addTodo', (title) => {
     cy.get('.new-todo').type(title + '{enter}')
 })
 
