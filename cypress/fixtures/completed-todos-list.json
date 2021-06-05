@@ -1,0 +1,22 @@
+[
+    {
+      "title": "1st completed todo from fixture",
+      "completed": true,
+      "id": "1"
+    },
+    {
+      "title": "2nd completed todo from fixture",
+      "completed": true,
+      "id": "2"
+    },
+    {
+      "title": "3rd completed todo from fixture",
+      "completed": true,
+      "id": "3"
+    },
+    {
+      "title": "4th completed todo from fixture",
+      "completed": true,
+      "id": "4"
+    }
+]

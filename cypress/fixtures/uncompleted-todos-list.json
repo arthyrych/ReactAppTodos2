@@ -1,21 +1,21 @@
 [
     {
-      "title": "1st todo from fixture",
+      "title": "1st uncompleted todo from fixture",
       "completed": false,
       "id": "1"
     },
     {
-      "title": "2nd todo from fixture",
+      "title": "2nd uncompleted todo from fixture",
       "completed": false,
       "id": "2"
     },
     {
-      "title": "3rd todo from fixture",
+      "title": "3rd uncompleted todo from fixture",
       "completed": false,
       "id": "3"
     },
     {
-      "title": "4th todo from fixture",
+      "title": "4th uncompleted todo from fixture",
       "completed": false,
       "id": "4"
     }
