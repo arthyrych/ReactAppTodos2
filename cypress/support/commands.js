@@ -26,15 +26,20 @@
 
 // adds a new todo item
 Cypress.Commands.add('addTodo', (title) => {
-    cy.get('.new-todo').type(title + '{enter}')
+    let newTodo = {
+        title: title,
+        completed: false
+    }
+    cy.request('POST', '/todos', newTodo)
 })
 
-// deletes a ceratian todo item via index
-Cypress.Commands.add('deleteTodo', (index) => {
+// deletes a ceratian todo item via index (ui)
+Cypress.Commands.add('deleteTodoUi', (index) => {
     cy.get('#todo-list').find('.destroy').eq(index).invoke('show').click()
 })
 
-// complete a ceratian todo item via text
-Cypress.Commands.add('completeTodo', (text) => {
+// complete a ceratian todo item via text (ui)
+Cypress.Commands.add('completeTodoUi', (text) => {
     cy.get('#todo-list').contains(text).parent().find('.toggle').check()
 })
+

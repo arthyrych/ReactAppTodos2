@@ -2,7 +2,7 @@ declare namespace Cypress {
     interface Chainable<Subject> {
   
        /**
-       * adds a new todo item
+       * adds a new todo item via POST /todos request
        * @example
        * cy.addTodo('todo title')
        */
