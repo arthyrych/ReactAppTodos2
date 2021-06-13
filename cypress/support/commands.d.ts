@@ -1,26 +1,40 @@
 declare namespace Cypress {
     interface Chainable<Subject> {
-  
+
+       /**
+       * returns all todo items via GET /todos request
+       * @example
+       * cy.getTodos()
+       */
+        getTodos(): Chainable<any>        
+
        /**
        * adds a new todo item via POST /todos request
        * @example
        * cy.addTodo('todo title')
        */
        addTodo(todo: string): Chainable<any>
-  
+
        /**
-       * deletes a ceratian todo item via index
+       * completes a todo item via PATCH /todos/${id} request
        * @example
-       * cy.deleteTodo(0)
+       * cy.completeTodo(id)
        */
-       deleteTodo(index: int): Chainable<any>
-  
+        completeTodo(id: int): Chainable<any>       
+
        /**
-       * completes a ceratian todo item via text
+       * deletes a todo item via DELETE /todos/${id} request
        * @example
-       * cy.completeTodo('text')
+       * cy.deleteTodo(id)
        */
-       completeTodo(text: string): Chainable<any>
+        deleteTodo(id: int): Chainable<any>       
+
+       /**
+       * deletes ALL todo items via DELETE /todos request
+       * @example
+       * cy.deleteAllTodos()
+       */
+        deleteAllTodos(): Chainable<any>
   
     }
 }

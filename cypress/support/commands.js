@@ -24,7 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-// adds a new todo item
+
+// returns all todo items
+Cypress.Commands.add('getTodos', () => {
+    cy.request('GET', '/todos')
+})
+
+// adds a new todo item with given title
 Cypress.Commands.add('addTodo', (title) => {
     let newTodo = {
         title: title,
@@ -33,13 +39,21 @@ Cypress.Commands.add('addTodo', (title) => {
     cy.request('POST', '/todos', newTodo)
 })
 
-// deletes a ceratian todo item via index (ui)
-Cypress.Commands.add('deleteTodoUi', (index) => {
-    cy.get('#todo-list').find('.destroy').eq(index).invoke('show').click()
+// completes a todo item with given id
+Cypress.Commands.add('completeTodo', (id) => {
+    let payload = {
+        "completed": true
+      }
+    cy.request('/PATCH', `/todos/${id}`, payload)
 })
 
-// complete a ceratian todo item via text (ui)
-Cypress.Commands.add('completeTodoUi', (text) => {
-    cy.get('#todo-list').contains(text).parent().find('.toggle').check()
+// deletes a todo item with given id
+Cypress.Commands.add('deleteTodo', (id) => {
+    cy.request('DELETE', `/todos/${id}`)
+})
+
+// deletes ALL todo items
+Cypress.Commands.add('deleteAllTodos', () => {
+    cy.request('DELETE', '/todos')
 })
 

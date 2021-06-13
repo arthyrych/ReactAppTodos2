@@ -1,11 +1,21 @@
 describe('complete todo test suite', () => {
 
-    it('complete todo test', () => {
-        cy.intercept('GET', '/todos', {fixture: 'several-todos-list'}).as('getTodos')
+    const todo = 'todo for completion'
+
+    beforeEach(() => {
+        cy.task('resetDatabase')
+        cy.addTodo(todo)
         cy.visit('/')
-        cy.wait('@getTodos')
-        cy.get('.todo').first().find('.toggle').click()
+    })
+
+    it('completes created todo with click', () => {
+        cy.get('.todo').find('.toggle').click()
             .parents('li').should('have.class', 'completed')
+    })
+
+    it('completes created todo with invoke', () => {
+        // cy.get('.todo').invoke('attr', 'addClass', 'completed')
+        cy.get('.todo').invoke('attr', 'class', 'completed')
     })
 
 })
