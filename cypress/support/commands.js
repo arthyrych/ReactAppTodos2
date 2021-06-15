@@ -31,18 +31,35 @@ Cypress.Commands.add('getTodos', () => {
 })
 
 // adds a new todo item with given title
-Cypress.Commands.add('addTodo', (title) => {
+Cypress.Commands.add('addTodo', (title, completed) => {
     let newTodo = {
         title: title,
-        completed: false
+        completed: completed || false
     }
     cy.request('POST', '/todos', newTodo)
 })
 
+// add several todo items (rewrites all todos)
+Cypress.Commands.add('seedTodos', () => {
+    let todos = [
+        {
+          "title": "1st uncompleted todo from command",
+          "completed": false,
+          "id": "1"
+        },
+        {
+          "title": "2nd completed todo from command",
+          "completed": true,
+          "id": "2"
+        }
+    ]
+    cy.request('POST', '/todos/seed', todos)
+})
+
 // completes a todo item with given id
-Cypress.Commands.add('completeTodo', (id) => {
+Cypress.Commands.add('completeTodo', (id, completed) => {
     let payload = {
-        "completed": true
+        "completed": completed || true
       }
     cy.request('/PATCH', `/todos/${id}`, payload)
 })

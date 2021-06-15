@@ -1,10 +1,4 @@
 {
-  "todos": [
-    {
-      "title": "todo for completion",
-      "completed": true,
-      "id": 1
-    }
-  ],
+  "todos": [],
   "accounts": []
 }

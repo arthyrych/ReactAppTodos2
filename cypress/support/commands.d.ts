@@ -9,16 +9,23 @@ declare namespace Cypress {
         getTodos(): Chainable<any>        
 
        /**
-       * adds a new todo item via POST /todos request
+       * adds a new todo item via POST /todos request (uncompleted by default or completed with second argument as true)
        * @example
-       * cy.addTodo('todo title')
+       * cy.addTodo('todo title', true)
        */
        addTodo(todo: string): Chainable<any>
 
        /**
-       * completes a todo item via PATCH /todos/${id} request
+       * adds several todo items via POST /todos/seed request (rewrites all todos)
        * @example
-       * cy.completeTodo(id)
+       * cy.seedTodos()
+       */
+        seedTodos(): Chainable<any>       
+
+       /**
+       * completes a todo item via PATCH /todos/${id} request (completes by default or can uncomplete with second as false)
+       * @example
+       * cy.completeTodo(id, false)
        */
         completeTodo(id: int): Chainable<any>       
 
