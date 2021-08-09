@@ -1,10 +1,7 @@
 describe('complete todo test suite', () => {
 
-    const todo = 'todo for completion'
-
     before(() => {
-        cy.task('resetDatabase')
-        cy.addTodo(todo)
+        cy.addTodo(Cypress.env('todoForCompletion'))
         cy.visit('/')
     })
 
@@ -26,6 +23,10 @@ describe('complete todo test suite', () => {
     it('uncompletes created todo with uncheck', () => {
         cy.get('input[type="checkbox"]').should('have.class', 'toggle')
             .uncheck().should('not.be.checked')
+    })
+
+    after(() => {
+        cy.task('resetDatabase')
     })
 
 })
