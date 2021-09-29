@@ -10,10 +10,14 @@ describe('open todos test suite', () => {
         interceptTodos({fixture: 'mixed-todos-list'})
         cy.get('#todo-list').should('be.visible').find('.todo').then(todos => {
             cy.wrap(todos).should('have.length', 4).and('not.be.empty')
-            cy.wrap(todos).first().should('not.have.class', 'completed')
-            cy.wrap(todos).last().should('have.class', 'completed')
+            for (let i = 0; i < todos.length; i++) {
+                if (i % 2 === 0) {
+                    cy.wrap(todos[i]).should('not.have.class', 'completed')
+                } else {
+                    cy.wrap(todos[i]).should('have.class', 'completed')
+                }
+            }
         })   
-        
     })
 
     it('open empty todos list from fixtures', () => {

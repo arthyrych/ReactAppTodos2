@@ -16,4 +16,8 @@ describe('POST /todos api test suite', () => {
         })
     })
 
+    after(() => {
+        cy.task('resetDatabase')
+    })
+
 })

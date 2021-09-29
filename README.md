@@ -1,12 +1,5 @@
 ## Todos app
 
-### QA milestones
-1. Resolve envirement variables, configurations, tasks, plugins, etc
-2. Add some custom commands
-3. API + UI + E2E tests
-4. Write scripts via npm or makefile
-5. Connect to dashboard
-
 ### How to install and run app
 1. `npm install`
 2. `npm start`
